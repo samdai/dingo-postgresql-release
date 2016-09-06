@@ -196,13 +196,18 @@ EOF
 EOF
 fi
 
+  if [[ "${MAX_CONNECTIONS}X" != "X" ]]; then
+      max_connections = ${MAX_CONNECTIONS}
+  fi
+  max_connections=${MAX_CONNECTIONS:-500}
+
   cat <<EOF >>/patroni/postgres.yml
   # parameters are converted into --<name> <value> flags on the server command line
   parameters:
     # http://www.postgresql.org/docs/9.5/static/runtime-config-connection.html
     listen_addresses: 0.0.0.0
     port: 5432
-    max_connections: 100
+    max_connections: ${max_connections}
     # ssl: "on"
     # ssl_cert_file: "$SSL_CERTIFICATE"
     # ssl_key_file: "$SSL_PRIVATE_KEY"

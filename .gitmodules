@@ -6,7 +6,7 @@
 	url = https://github.com/dingotiles/dingo-postgresql-clusterdata-backup.git
 [submodule "src/dingo-postgresql-broker"]
 	path = src/dingo-postgresql-broker
-	url = https://github.com/dingotiles/dingo-postgresql-broker.git
+	url = https://github.com/samdai/dingo-postgresql-broker.git
 [submodule "src/dingo-postgresql-fog-check"]
 	path = src/dingo-postgresql-fog-check
 	url = https://github.com/dingotiles/dingo-postgresql-fog-check

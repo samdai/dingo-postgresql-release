@@ -6,7 +6,7 @@ meta:
 
   broker:
     services:
-      - name: dingo-postgresql
+      - name: postgresql
         description: Dedicated PostgreSQL 9.5
         id: beb5973c-e1b2-11e5-a736-c7c0b526363d
         bindable: true
@@ -21,7 +21,7 @@ meta:
         plans:
           - name: cluster
             description: Dedicated, highly-available cluster that is continously archived
-            id: 1545e30e-6dc3-11e5-826a-6c4008a663f0
+            id: 1545e30e-6dc3-11e5-826a-6c4008a663f1
             free: true
             metadata:
               displayname: Cluster
