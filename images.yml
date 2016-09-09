@@ -1,4 +1,4 @@
-- image: dingotiles/dingo-postgresql95
+- image: samdai/dingo-postgresql95
   tag: "latest"
   job: embedded-images
 - image: cfcommunity/registrator
