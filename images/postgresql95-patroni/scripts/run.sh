@@ -98,6 +98,7 @@ indent_startup() {
   SUPERUSER_PASSWORD=${SUPERUSER_PASSWORD:-Tof2gNVZMz6Dun}
   APPUSER_USERNAME=${APPUSER_USERNAME:-dvw7DJgqzFBJC8}
   APPUSER_PASSWORD=${APPUSER_PASSWORD:-jkT3TTNebfrh6C}
+  EXTENSIONS=${EXTENSIONS:-["ltree","uuid-ossp"]}
 
   # pass thru environment variables into an env dir for postgres user's archive/restore commands
   scripts_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
@@ -178,6 +179,7 @@ postgresql:
     username: ${ADMIN_USERNAME}
     password: ${ADMIN_PASSWORD}
   create_replica_method: ${replica_methods}
+  extensions: ${EXTENSIONS}
 EOF
 
   if [[ "${WALE_CMD}X" != "X" ]]; then
@@ -196,9 +198,6 @@ EOF
 EOF
 fi
 
-  if [[ "${MAX_CONNECTIONS}X" != "X" ]]; then
-      max_connections = ${MAX_CONNECTIONS}
-  fi
   max_connections=${MAX_CONNECTIONS:-500}
 
   cat <<EOF >>/patroni/postgres.yml
@@ -244,6 +243,7 @@ EOF
     chown postgres:postgres -R ${PG_DATA_DIR}
     chmod 700 $PG_DATA_DIR
   fi
+
 
   cat /patroni/postgres.yml
 
